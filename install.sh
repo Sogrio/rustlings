@@ -165,7 +165,7 @@ echo "Checking out version $Version..."
 git checkout -q ${Version}
 
 echo "Installing the 'rustlings' executable..."
-cargo install --locked --force --path .
+cargo install --force --path .
 
 if ! [ -x "$(command -v rustlings)" ]
 then

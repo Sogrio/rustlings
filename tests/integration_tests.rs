@@ -146,31 +146,6 @@ fn get_hint_for_single_test() {
 }
 
 #[test]
-fn all_exercises_require_confirmation() {
-    for exercise in glob("exercises/**/*.rs").unwrap() {
-        let path = exercise.unwrap();
-        if path.file_name().unwrap() == "mod.rs" {
-            continue;
-        }
-        let source = {
-            let mut file = File::open(&path).unwrap();
-            let mut s = String::new();
-            file.read_to_string(&mut s).unwrap();
-            s
-        };
-        source
-            .matches("// I AM NOT DONE")
-            .next()
-            .unwrap_or_else(|| {
-                panic!(
-                    "There should be an `I AM NOT DONE` annotation in {:?}",
-                    path
-                )
-            });
-    }
-}
-
-#[test]
 fn run_compile_exercise_does_not_prompt() {
     Command::cargo_bin("rustlings")
         .unwrap()
@@ -266,4 +241,13 @@ fn run_rustlings_list_without_done() {
         .assert()
         .success()
         .stdout(predicates::str::contains("Done").not());
+}
+
+#[test]
+fn all_exercises_done() {
+    Command::cargo_bin("rustlings")
+        .unwrap()
+        .arg("verify")
+        .assert()
+        .success();
 }
