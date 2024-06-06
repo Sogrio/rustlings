@@ -11,9 +11,10 @@ struct Point {
 fn main() {
     let y: Option<Point> = Some(Point { x: 100, y: 200 });
 
+    // On utilise une référence (&) dans le match pour éviter la propriété de déplacement (move)
     match &y {
-        Some(p) => println!("Co-ordinates are {},{} ", p.x, p.y),
-        _ => panic!("no match!"),
+        Some(p) => println!("Co-ordinates are {},{} ", p.x, p.y), // Affiche les coordonnées si Some
+        _ => panic!("no match!"), // Panique si None
     }
-    y; // Fix without deleting this line.
+    y; // Corrige sans enlever la ligne
 }
