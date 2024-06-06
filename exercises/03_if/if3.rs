@@ -4,7 +4,7 @@
 
 pub fn animal_habitat(animal: &str) -> &'static str {
     let identifier = if animal == "crab" {
-        1
+        1 //identifiant 1 correspond à "Beach" et ainsi de suite
     } else if animal == "gopher" {
         2
     } else if animal == "snake" {
@@ -32,12 +32,12 @@ pub fn animal_habitat(animal: &str) -> &'static str {
 mod tests {
     use super::*;
 
-    #[test]
+    // Test pour vérifier que "gopher" vit dans un terrier (Burrow)
     fn gopher_lives_in_burrow() {
         assert_eq!(animal_habitat("gopher"), "Burrow")
     }
 
-    #[test]
+    // Test pour vérifier que "snake" vit dans le désert (Desert)....
     fn snake_lives_in_desert() {
         assert_eq!(animal_habitat("snake"), "Desert")
     }
