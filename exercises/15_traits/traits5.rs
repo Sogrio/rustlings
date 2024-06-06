@@ -27,8 +27,8 @@ impl OtherTrait for SomeStruct {}
 impl SomeTrait for OtherStruct {}
 impl OtherTrait for OtherStruct {}
 
-// YOU MAY ONLY CHANGE THE NEXT LINE
-fn some_func(item: impl SomeTrait + OtherTrait) -> bool {
+// On utilise des types génériques dans la fonction some_func pour accepter n'importe quel type qui implémente SomeTrait et OtherTrait.
+fn some_func<T: SomeTrait + OtherTrait>(item: T) -> bool {
     item.some_function() && item.other_function()
 }
 
