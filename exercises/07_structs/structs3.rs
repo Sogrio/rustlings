@@ -9,13 +9,15 @@
 
 #[derive(Debug)]
 struct Package {
-    sender_country: String,
-    recipient_country: String,
-    weight_in_grams: u32,
+    sender_country: String, // Pays d'origine
+    recipient_country: String, // Pays de destination
+    weight_in_grams: u32, // Poids en grammes
 }
 
 impl Package {
+    // Constructeur pour créer une nouvelle instance de Package
     fn new(sender_country: String, recipient_country: String, weight_in_grams: u32) -> Package {
+        // Vérifie que le poids est d'au moins 10 grammes
         if weight_in_grams < 10 {
             // This is not how you should handle errors in Rust,
             // but we will learn about error handling later.
@@ -28,11 +30,11 @@ impl Package {
             }
         }
     }
-
+    // Vérifie si le paquet est international
     fn is_international(&self) -> bool {
         self.sender_country != self.recipient_country
     }
-
+    // Calcule les frais
     fn get_fees(&self, cents_per_gram: u32) -> u32 {
         // Something goes here...
         cents_per_gram * self.weight_in_grams
