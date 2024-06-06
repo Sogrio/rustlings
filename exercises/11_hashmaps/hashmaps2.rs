@@ -1,15 +1,3 @@
-println!("exoooo");
-println!("exoooo");
-println!("exoooo");
-println!("exoooo");
-println!("exoooo");
-println!("exoooo");
-println!("exoooo");
-println!("exoooo");
-println!("exoooo");
-println!("exoooo");
-println!("exoooo");
-println!("exoooo");
-println!("exoooo");
-println!("exoooo");
-println!("exoooo");
+fn main() {
+    println!("SKIP !!!");
+}
