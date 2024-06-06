@@ -28,11 +28,14 @@ fn vec_map(v: &Vec<i32>) -> Vec<i32> {
 
 #[cfg(test)]
 mod tests {
-    use super::*;
+    use super::*;     // Test pour vérifier que la fonction `vec_loop` fonctionne correctement
+
 
     #[test]
     fn test_vec_loop() {
+        // Crée un vecteur contenant les cinq premiers nombres pairs
         let v: Vec<i32> = (1..).filter(|x| x % 2 == 0).take(5).collect();
+        // Appelle la fonction `vec_loop` et stocke le résultat dans `ans`
         let ans = vec_loop(v.clone());
 
         assert_eq!(ans, v.iter().map(|x| x * 2).collect::<Vec<i32>>());
@@ -42,6 +45,7 @@ mod tests {
     fn test_vec_map() {
         let v: Vec<i32> = (1..).filter(|x| x % 2 == 0).take(5).collect();
         let ans = vec_map(&v);
+        // Vérifie que le résultat est correct
 
         assert_eq!(ans, v.iter().map(|x| x * 2).collect::<Vec<i32>>());
     }
