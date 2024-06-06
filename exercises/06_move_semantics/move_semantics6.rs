@@ -6,21 +6,21 @@
 // for a hint.
 
 fn main() {
-    let data = "Rust is great!".to_string();
+    let data = "Rust is great!".to_string(); // Crée une String à partir d'un littéral
 
-    get_char(&data);
+    get_char(&data); // Passe une référence à `get_char`, donc `data` n'est pas déplacé
 
-    string_uppercase(data);
+    string_uppercase(data); // Passe la propriété à `string_uppercase`, donc `data` est déplacé
 }
 
-// Should not take ownership
+// Ne doit pas prendre la propriété
 fn get_char(data: &String) -> char {
-    data.chars().last().unwrap()
+    data.chars().last().unwrap() // Retourne le dernier caractère de la chaîne
 }
 
-// Should take ownership
+// Doit prendre la propriété
 fn string_uppercase(mut data: String) {
-    data = data.to_uppercase();
+    data = data.to_uppercase(); // Convertit la chaîne en majuscules
 
-    println!("{}", data);
+    println!("{}", data); // Affiche la chaîne en majuscules
 }
