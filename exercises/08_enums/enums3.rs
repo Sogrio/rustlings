@@ -60,6 +60,8 @@ mod tests {
     use super::*;
 
     #[test]
+    // fn function((t, u, p, l, e))
+    // Prends en compte les différentes variantes du message
     fn test_match_message_call() {
         let mut state = State {
             quit: false,
@@ -67,10 +69,10 @@ mod tests {
             color: (0, 0, 0),
             message: "hello world".to_string(),
         };
-        state.process(Message::ChangeColor(255, 0, 255));
-        state.process(Message::Echo(String::from("Hello world!")));
-        state.process(Message::Move(Point { x: 10, y: 15 }));
-        state.process(Message::Quit);
+        state.process(Message::ChangeColor(255, 0, 255)); // utilise la méthode pour chagner de couleur
+        state.process(Message::Echo(String::from("Hello world!"))); // méthode qui affiche le message
+        state.process(Message::Move(Point { x: 10, y: 15 })); // utilise la méthode pour changer de position
+        state.process(Message::Quit); // utilise la méthode existante pour quitter
 
         assert_eq!(state.color, (255, 0, 255));
         assert_eq!(state.position.x, 10);
