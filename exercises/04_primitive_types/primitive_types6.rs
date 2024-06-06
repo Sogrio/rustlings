@@ -8,10 +8,9 @@
 
 #[test]
 fn indexing_tuple() {
-    let numbers = (1, 2, 3);
+    let numbers = (1, 2, 3); // Déclare un tuple avec trois éléments
     // Replace below ??? with the tuple indexing syntax.
-    let second = numbers.1;
+    let second = numbers.1; // Accède au deuxième élément du tuple (indice 1)
 
-    assert_eq!(2, second,
-        "This is not the 2nd number in the tuple!")
+    assert_eq!(2, second, "This is not the 2nd number in the tuple!") // Vérifie que le deuxième élément est égal à 2
 }
